@@ -40,19 +40,9 @@ for (var i = 0; i < citiesParsed.length; i++) {
 // } 
     callWeather(usercity)
 }
-// when the user types in the city they are looking for the input box will shift and the page will then be shared with the requested information
-     
-    // A: need the browser to listen for the click so that it can run two functions one for saving the city names and dynamically creating the list of previously searched cities and the other to run a series of functions like the request for the api search and translation of data retrieval. 
-    form.addEventListener("submit", processClick)
-// series of functions that request and process that data for the city provide
-// weather data can be obtained in JSON
-     // Step 
-    // Q: What are you going to do?
-    // A: create a fetch request for the data
-    // Q: How are you going to do it?
-    // A: using the built in fetch method
-    // Q: Why are you going to do it?
-    // A: so that I can retrieve the data from the OpenWeather API
+
+// series of functions that request and process that data for the city provide ?? cant get 
+
     
 // function that fetches the api information
 function callWeather() {
@@ -64,15 +54,20 @@ function callWeather() {
         return response.json();
       })
     .then(function (data) {
-        console.log(data)
+        
+        
+        // each day will have city name, the date, an icon representation of weather, temperature, humidity, wind speed
         for (var i = 6; i < data.list.length; i+=8) {
             var cardDiv = document.createElement("div")
             cardDiv.setAttribute("id", "cardDiv")
             var cardHead = document.createElement("h2")
+
             var iconCode = data.list[i].weather[0].icon
+            // weather api site gives this website for icons but do I need to add it as a resource because Ive only gotten it to print on the page??? if I use it in the browser it takes me to an image???
             var icon = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
             var cardIcon = document.createElement("i")
             cardIcon.setAttribute("src", icon)
+
             var temp = document.createElement("p")
             var wind = document.createElement("p")
             var humidity = document.createElement("p")
@@ -80,23 +75,15 @@ function callWeather() {
             cardHead.textContent = data.list[i].dt_txt
             temp.textContent = data.list[i].main.temp
             wind.textContent = data.list[i].wind.speed
-            console.log(humidity.textContent = data.list[i].main.humidity)
+            humidity.textContent = data.list[i].main.humidity
             
-
             wContainer.append(cardDiv)
             cardDiv.append(cardHead)
             cardDiv.append(cardIcon)
             cardDiv.append(temp)
             cardDiv.append(wind)
             cardDiv.append(humidity)
-
-console.log("date " + data.list[i].dt_txt);
         
-        
-         console.log(data.list[i].weather[0].icon); 
-        // console.log("temp " + data.list[0].main.temp);
-        // console.log("wind " + data.list[0].wind.speed);
-        // console.log("humidity " + data.list[0].main.humidity);
     }
          
    });  
@@ -110,50 +97,52 @@ console.log("date " + data.list[i].dt_txt);
         return response.json();
       })
     .then(function (data) {
-        console.log("whatever")
+        
         var curDiv = document.createElement("div")
-        var curHead = document.createElement("h2")
+        curDiv.setAttribute("id", "curDiv")
+        var curHead = document.createElement("h1")
+        var curDate = document.createElement("span")
+
+        var curICode = data.weather[0].icon
+        var curI = "http://openweathermap.org/img/wn/" + curICode + "@2x.png"
         var curIcon = document.createElement("i")
-        var curUl = document.createElement("ul")
-        var curLi = document.createElement("li")
-        // console.log(data)
-        // console.log("name " + data.name);
-        // console.log("date " + data.dt_txt); // ?? need to check this one
-        // // console.log(data.weather[0]).icon; does not like the icon for some reason
-        // console.log("temp " + data.main.temp);
-        // console.log("wind " + data.wind.speed);
-        // console.log("humidity " + data.main.humidity);
+        curIcon.setAttribute("src", curI)
+
+        var curTemp = document.createElement("p")
+        var curWind = document.createElement("p")
+        var curHumidity = document.createElement("p")
+        
+        curHead.textContent = data.name
+        curDate.textContent = data.dt_txt
+        console.log(data)
+        console.log(data.dt_txt)
+        curTemp.textContent = data.main.temp
+        curWind.textContent = data.wind.speed
+        curHumidity.textContent = data.main.humidity
+
+        wContainer.append(curDiv)
+        curDiv.append(curHead)
+        curHead.append(curDate)
+        curDiv.append(curIcon)
+        curDiv.append(curTemp)
+        curDiv.append(curWind)
+        curDiv.append(curHumidity)
+        
+        
+        
         
    });  
 }
 
-// the requested information will be broken into two parts - the current days forecast and the next five day
-     // Step 
-    // Q: What are you going to do?
-    // A: dynamically generate a table 
-    // Q: How are you going to do it?
-    // A: with a for loop
-    // Q: Why are you going to do it?
-    // A: so that the information is easily readable for the user
+// when the user types in the city they are looking for the input box will shift and the page will then be shared with the requested information
+     
+    // A: need the browser to listen for the click so that it can run two functions one for saving the city names and dynamically creating the list of previously searched cities and the other to run a series of functions like the request for the api search and translation of data retrieval. 
+    form.addEventListener("submit", processClick)
 
-// each day will have city name, the date, an icon representation of weather, temperature, humidity, wind speed
-     // Step 
-    // Q: What are you going to do?
-    // A: locate the information with in the api results 
-    // Q: How are you going to do it?
-    // A: looking through the result
-    // Q: Why are you going to do it?
-    // A: so that i can see how the data is organized
 
 
 
     
 
-    // Step 
-    // Q: What are you going to do?
-    // A: 
-    // Q: How are you going to do it?
-    // A:
-    // Q: Why are you going to do it?
-    // A:
+
 
