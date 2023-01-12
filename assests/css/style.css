@@ -3,9 +3,7 @@ body {
     background-color: #9cb8af;
 }
 
-main{
-    display: flex;
-}
+
 
 header {
     text-align: center;
@@ -16,6 +14,10 @@ header {
     padding: 10px;
 }
 
+label {
+    
+}
+
 button {
     padding: 10px;
     width: fit-content;
@@ -23,13 +25,12 @@ button {
     border-radius: 10px;
     background: #779e92;
 }
+#curDiv {
+    border: 8px ridge #779e92;
+}
 
 #cardDiv {
     border: 5px ridge #779e92;
+    
 }
 
-wContainer
-
-#forContainer {
-
-}

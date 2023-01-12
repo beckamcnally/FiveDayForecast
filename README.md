@@ -12,33 +12,27 @@
 | JavaScript | [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)     | 
 | | [https://www.w3schools.com/js/default.asp](https://www.w3schools.com/js/default.asp)     |   
 | | [https://davidwalsh.name/event-delegate](https://davidwalsh.name/event-delegate)     | 
-| | [https://www.youtube.com/watch?v=AUOzvFzdIk4](https://www.youtube.com/watch?v=AUOzvFzdIk4)     |   
+| | [https://www.youtube.com/watch?v=AUOzvFzdIk4](https://www.youtube.com/watch?v=AUOzvFzdIk4)     |  
+| Bootstrap    | [https://getbootstrap.com/docs/5.3/getting-started/introduction](https://getbootstrap.com/docs/5.3/getting-started/introduction
+) |
+| JQuery    | [https://jquery.com/](https://jquery.com/) |
+|     | [https://www.w3schools.com/jquery/](https://www.w3schools.com/jquery/) |
+| Day.js    | [https://day.js.org/docs/en/installation/installation](https://day.js.org/docs/en/installation/installation) |
+| Open Weather    | [https://openweathermap.org/forecast5](https://openweathermap.org/forecast5) |
 
-[5 Day Weather Forecast](https://openweathermap.org/forecast5)
-
-JQuery
-https://jquery.com/
-https://www.w3schools.com/jquery/
-
-Bootstrap 
-https://getbootstrap.com/docs/5.3/getting-started/introduction/
-
-Day.js
-https://day.js.org/docs/en/installation/installation
 ## Description 
+Get the weather for today and the future weather for five days. If your going somewhere you can look up other cities and save they will automatically save for you so that you can come back and see them again later as well.
+[Visit the Deployed Site](https://beckamcnally.github.io/FiveDayForecast/)
 
-[Visit the Deployed Site](#)
 
 
-
-![Site Landing Page](#)
-
-## Usage 
-
-Provide instructions and examples for use. Include screenshots as needed. 
-
+![Site Landing Page](./assests/images/sitegif.gif)
 
 ## Learning Points 
+
+* API's
+* Bootstrap
+* day.js
 
 
 
