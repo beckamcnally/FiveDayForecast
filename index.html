@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assests/css/style.css">
-    <title>Local Weather</title>
+    <title>Weather Forecast</title>
 </head>
 <body>
-    <header>Weather</header>
+    <header>Weather Forecast</header>
     <main>
-        <article>
+        <article id="forContainer">
             <form id="form">
-            <label for="input">Enter a City Name<input id="userCity" type="text"></label>
-            <button id="getWeather">Get Weather</button>
+                <label for="input">Enter a City Name<input id="userCity" type="text"></label>
+                <button id="getWeather">Get Weather</button>
             </form>
-        </article>
-        <article >
-            <ul id="btnContainer"></ul>
+        
+            <section >
+                <ul id="btnContainer"></ul>
+            </section>
         </article>
         <article id="wContainer"></article>
     </main>

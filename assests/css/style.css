@@ -1,13 +1,35 @@
 
 body {
-    background-color: rgb(136, 237, 136);
+    background-color: #9cb8af;
+}
+
+main{
+    display: flex;
+}
+
+header {
+    text-align: center;
+    font-weight: 800;
+    font-size: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4491b3;
+    padding: 10px;
 }
 
 button {
-    padding: 20px;
+    padding: 10px;
     width: fit-content;
+    border: 5px outset #779e92;
+    border-radius: 10px;
+    background: #779e92;
 }
 
 #cardDiv {
-    border: 5px solid red;
+    border: 5px ridge #779e92;
+}
+
+wContainer
+
+#forContainer {
+
 }

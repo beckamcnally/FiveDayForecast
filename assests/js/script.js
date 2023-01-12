@@ -4,6 +4,7 @@ var btnContainer = document.getElementById('btnContainer')
 var form = document.getElementById('form')
 var wContainer = document.getElementById('wContainer')
 var usercity;
+var reSearch
 var cities = [];
 
 
@@ -13,7 +14,7 @@ var cities = [];
 function processClick (event) {
     event.preventDefault()
     usercity = userCityField.value
-    userCityField.textContent = "" // didnt work
+    userCityField.value = "" 
     cities.push(usercity)
    
     var citiesStringify = JSON.stringify(cities)
@@ -33,12 +34,21 @@ for (var i = 0; i < citiesParsed.length; i++) {
     var city = citiesParsed[i]
     var liEl = document.createElement("li")
     var btnEl = document.createElement("button")
+    btnEl.setAttribute("value", city)
     btnContainer.appendChild(liEl) 
         liEl.appendChild(btnEl)
         btnEl.textContent = city
     }      
-// } 
-    callWeather(usercity)
+ 
+    callWeather()
+}
+
+// user clicked a previously searched button
+function saveButtons (e) {
+    e.stopPropagation()
+    var userSaveClicked = e.target
+    reSearch = userSaveClicked.value
+    callWeather()
 }
 
 // series of functions that request and process that data for the city provide ?? cant get 
@@ -46,8 +56,12 @@ for (var i = 0; i < citiesParsed.length; i++) {
     
 // function that fetches the api information
 function callWeather() {
-  var api = "https://api.openweathermap.org/data/2.5/forecast?q=" + usercity + "&appid=831d578d1e311567a319b8a0576c71e4&units=imperial"
-
+console.log("usercity " + usercity)
+    if (usercity) {
+        var api = "https://api.openweathermap.org/data/2.5/forecast?q=" + usercity + "&appid=831d578d1e311567a319b8a0576c71e4&units=imperial"
+    } else {
+        var api = "https://api.openweathermap.org/data/2.5/forecast?q=" + reSearch + "&appid=831d578d1e311567a319b8a0576c71e4&units=imperial"    
+    }
   fetch(api)
     
     .then(function (response) {
@@ -55,7 +69,10 @@ function callWeather() {
       })
     .then(function (data) {
         
-        
+        // clear out car filed
+        // while (wContainer.firstChild) {
+        //     wContainer.removeChild(wContainer.firstChild);
+        // }
         // each day will have city name, the date, an icon representation of weather, temperature, humidity, wind speed
         for (var i = 6; i < data.list.length; i+=8) {
             var cardDiv = document.createElement("div")
@@ -65,6 +82,7 @@ function callWeather() {
             var iconCode = data.list[i].weather[0].icon
             // weather api site gives this website for icons but do I need to add it as a resource because Ive only gotten it to print on the page??? if I use it in the browser it takes me to an image???
             var icon = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+            
             var cardIcon = document.createElement("i")
             cardIcon.setAttribute("src", icon)
 
@@ -138,6 +156,8 @@ function callWeather() {
      
     // A: need the browser to listen for the click so that it can run two functions one for saving the city names and dynamically creating the list of previously searched cities and the other to run a series of functions like the request for the api search and translation of data retrieval. 
     form.addEventListener("submit", processClick)
+
+    btnContainer.addEventListener("click", saveButtons)
 
 
 
